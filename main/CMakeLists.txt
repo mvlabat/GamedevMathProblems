@@ -9,4 +9,5 @@ add_executable(app
 )
 
 target_link_libraries(app
-        My2D)
+        My2D
+        My3D)

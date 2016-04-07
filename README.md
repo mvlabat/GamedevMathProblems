@@ -12,7 +12,4 @@ make
 ```
 
 ## Running tests
-```
-cd build/My2D/tests
-./allTests
-```
+`./runtests`

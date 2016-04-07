@@ -14,6 +14,7 @@ typedef std::array<point2d, 2> vectorp2d;
 class My2D
 {
 public:
+    static double epsilon(ushort power = 1000);
     static double calcDistance(point2d p1, point2d p2);
     static vector2d calcVectorCoords(vectorp2d vector);
     static vector2d calcVectorCoords(point2d p1, point2d p2);

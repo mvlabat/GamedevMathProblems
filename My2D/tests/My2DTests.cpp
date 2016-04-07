@@ -3,10 +3,6 @@
 #include "gtest/gtest.h"
 #include "../src/My2D.h"
 
-double epsilon(ushort power = 1000) {
-    return std::pow(1, -power);
-}
-
 std::string point2d_to_string(point2d point) {
     std::stringstream output;
     output << "( " << point[0] << "; " << point[1] << " )";
@@ -20,7 +16,7 @@ bool expect_double_arrays_eq(std::array<double, 2> expected, std::array<double, 
     if (length1 != length2) return false;
 
     for (long i = 0; i < length1; ++i) {
-        if (expected[i] - actual[i] > epsilon()) return false;
+        if (expected[i] - actual[i] > My2D::epsilon()) return false;
     }
 
     return true;
