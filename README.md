@@ -12,4 +12,6 @@ make
 ```
 
 ## Running tests
-`./runtests`
+```
+./runtests
+```
