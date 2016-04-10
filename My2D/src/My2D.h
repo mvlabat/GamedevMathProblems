@@ -21,6 +21,7 @@ public:
     static vector2d calcVectorCoords(point2d p1, point2d p2);
     static double calcVectorsAngle(vectorp2d p1, vectorp2d p2);
     static double calcVectorsAngle(vector2d p1, vector2d p2);
+    static bool isWithingRectangular(point2d point, point2d r1, point2d r2);
     static point2d calcPlainBezierCurvePoint(std::vector<point2d> points, double t);
 };
 

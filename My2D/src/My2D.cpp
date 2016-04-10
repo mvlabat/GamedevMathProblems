@@ -37,6 +37,34 @@ double My2D::calcVectorsAngle(vector2d v1, vector2d v2)
     return std::acos( (v1[0] * v2[0] + v1[1] * v2[1]) / calcDistance(v1, { 0, 0 }) / calcDistance(v2, { 0, 0 }));
 }
 
+bool My2D::isWithingRectangular(point2d point, point2d r1, point2d r2)
+{
+    double minX;
+    double maxX;
+    double minY;
+    double maxY;
+
+    // Fix received coordinates.
+    if (r1[0] < r2[0]) {
+        minX = r1[0];
+        maxX = r2[0];
+    }
+    else {
+        minX = r2[0];
+        maxX = r1[0];
+    }
+    if (r1[1] < r2[1]) {
+        minY = r1[1];
+        maxY = r2[1];
+    }
+    else {
+        minY = r2[1];
+        maxY = r1[1];
+    }
+
+    return point[0] >= minX && point[1] >= minY && point[0] <= maxX && point[1] <= maxY;
+}
+
 point2d My2D::calcPlainBezierCurvePoint(std::vector<point2d> points, double t)
 {
     ulong pointsCount = points.size() - 1;

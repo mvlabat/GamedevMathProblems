@@ -11,7 +11,15 @@ cmake ..
 make
 ```
 
+## Running demos
+```
+main/app
+```
+
 ## Running tests
 ```
 ./runtests
 ```
+
+## Screenshots
+![GamedevMathProblems demo screenshot](http://pix.toile-libre.org/upload/original/1460300458.png)

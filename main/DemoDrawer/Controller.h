@@ -5,22 +5,25 @@
 #ifndef GAMEDEVMATHPROBLEMS_EXAMPLEDRAWER_H
 #define GAMEDEVMATHPROBLEMS_EXAMPLEDRAWER_H
 
-#include "Demos/PlainBezierCurveDemo/PlainBezierCurveDemo.h"
+#include "Demos/PlainBezierCurveDemo/Demo.h"
 
-class DemoDrawer
+class Controller
 {
 protected:
     SDL_Renderer *m_renderer;
+    std::vector<SDL_Event*> events;
     DemoInterface *demo;
 public:
-    DemoDrawer(SDL_Renderer *renderer):
+    Controller(SDL_Renderer *renderer):
         m_renderer(renderer),
-        demo(new PlainBezierCurveDemo(renderer))
+        demo(new PlainBezierCurve::Demo(renderer, &events))
     {
         demo->setupRenderer();
     }
-    ~DemoDrawer();
+    ~Controller();
 
+    void addEvent(SDL_Event *sdlEvent);
+    void processEvents();
     void draw();
 };
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
-#include "DemoDrawer/DemoDrawer.h"
+#include "DemoDrawer/Controller.h"
 
 using namespace std;
 
@@ -28,15 +28,18 @@ int main()
 
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     SDL_Event *mainEvent = new SDL_Event();
-    DemoDrawer drawer(renderer);
+    Controller controller(renderer);
     bool quit = false;
 
     while (!quit) {
         while (SDL_PollEvent(mainEvent)) {
             if (mainEvent->type == SDL_QUIT) quit = true;
+            else controller.addEvent(mainEvent);
         }
+        controller.processEvents();
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 1);
         SDL_RenderClear(renderer);
-        drawer.draw();
+        controller.draw();
         SDL_RenderPresent(renderer);
     }
 
