@@ -36,3 +36,17 @@ double My2D::calcVectorsAngle(vector2d v1, vector2d v2)
 {
     return std::acos( (v1[0] * v2[0] + v1[1] * v2[1]) / calcDistance(v1, { 0, 0 }) / calcDistance(v2, { 0, 0 }));
 }
+
+point2d My2D::calcPlainBezierCurvePoint(std::vector<point2d> points, double t)
+{
+    ulong pointsCount = points.size() - 1;
+    while (pointsCount > 0) {
+        for (ulong i = 0; i < pointsCount; ++i) {
+            points[i][0] = points[i][0] * (1 - t) + points[i + 1][0] * t;
+            points[i][1] = points[i][1] * (1 - t) + points[i + 1][1] * t;
+        }
+        pointsCount -= 1;
+        points.pop_back();
+    }
+    return points[0];
+}

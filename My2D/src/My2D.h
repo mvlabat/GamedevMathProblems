@@ -6,6 +6,7 @@
 #define GAMEDEVMATHPROBLEMS_MY2D_H
 
 #include <array>
+#include <vector>
 
 typedef std::array<double, 2> point2d;
 typedef std::array<double, 2> vector2d;
@@ -20,6 +21,7 @@ public:
     static vector2d calcVectorCoords(point2d p1, point2d p2);
     static double calcVectorsAngle(vectorp2d p1, vectorp2d p2);
     static double calcVectorsAngle(vector2d p1, vector2d p2);
+    static point2d calcPlainBezierCurvePoint(std::vector<point2d> points, double t);
 };
 
 #endif //GAMEDEVMATHPROBLEMS_MY2D_H
